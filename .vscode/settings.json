@@ -1,0 +1,11 @@
+{
+    "makefile.makefilePath": "C:\\Users\\tmeer\\Desktop\\Malefacta\\Makefile",
+    "makefile.makePath": "C:\\msys64\\usr\\bin\\make.exe",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\tmeer\\Desktop\\Malefacta",
+            "binaryPath": "c:\\Users\\tmeer\\Desktop\\Malefacta\\malefacta",
+            "binaryArgs": []
+        }
+    ]
+}
