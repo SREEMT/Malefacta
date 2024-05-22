@@ -1,17 +1,26 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <termios.h>
 #include <unistd.h>
 
-//function to eneable raw mode in the editor
+//creating the struct needed for the terminal interface
+struct termios orig_termios;
+
+//function to disable Raw Mode;
+void disableRawMode(){
+    tcsetattr(STDIN_FILENO, TCSAFLUSH, &orig_termios);
+}
+
+//function to eneable raw mode in the editor (uses termios)
 void enableRawMode(){
-        struct termios raw;
+    tcgetattr(STDIN_FILENO, &orig_termios);
+    atexit(disableRawMode);
 
-        tcgetattr(STDIN_FILENO, &raw);
+    struct termios raw = orig_termios;
+    raw.c_lflag &= ~(ECHO);
 
-        raw.c_lflag &= ~(ECHO);
-
-        tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
-    }
+    tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
+}
 
 
 int main(){
