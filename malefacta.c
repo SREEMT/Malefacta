@@ -22,7 +22,7 @@ void enableRawMode(){
     tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 }
 
-
+//main that makes the whole program work
 int main(){
 
     //calls the function to eneable raw mode
